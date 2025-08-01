@@ -158,10 +158,12 @@
   font-size: 18px;
   color: white;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.4s ease;
 }
 
 .toggle-label span {
   z-index: 1;
+  user-select: none;
 }
 
 .toggle-label .ball {
@@ -174,11 +176,41 @@
   left: 4px;
   transition: transform 0.3s ease;
   z-index: 2;
+  box-shadow: 0 0 8px rgba(0,0,0,0.15);
+}
+
+input:checked + .toggle-label {
+  background: var(--accent-color);
 }
 
 input:checked + .toggle-label .ball {
   transform: translateX(36px);
 }
+
+    .language-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 80px; /* adjust to leave space for dark mode toggle */
+  z-index: 999;
+}
+
+#langToggle {
+  background: var(--secondary-color);
+  border: none;
+  border-radius: 50px;
+  padding: 0.4rem 1rem;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+}
+
+#langToggle:hover {
+  background: var(--accent-color);
+}
+
   </style>
 </head>
 <body>
@@ -192,19 +224,22 @@ input:checked + .toggle-label .ball {
     <div class="ball"></div>
   </label>
 </div>
-
+  
+<div class="language-toggle">
+  <button id="langToggle">PT 🇵🇹</button>
+</div>
 
   <header>
     <img src="Boards&Cubes_1080 x 1080 px Logo 2.png" alt="Title Image">
-    <h1>Competidores Qualificados | Qualified Competitors</h1>
+    <h1 data-en="Qualified Competitors" data-pt="Competidores Qualificados">Competidores Qualificados | Qualified Competitors</h1>
   </header>
 
   <section class="ranking">
     <table>
       <thead>
         <tr>
-          <th>Nome</th>
-          <th>Competição</th>
+          <th data-en="Name" data-pt="Nome">Nome</th>
+          <th data-en="Competition" data-pt="Competição">Competição</th>
         </tr>
       </thead>
       <tbody>
@@ -243,11 +278,11 @@ input:checked + .toggle-label .ball {
   </section>
 
   <div class="button-group">
-    <a href="https://www.worldcubeassociation.org/competitions/BoardsCubesVenteiraMM2025#62288-boards-cubes-cubing-clash" target="_blank" class="wca-button">
-      Visit Competition Page
+    <a href="https://www.worldcubeassociation.org/competitions/BoardsCubesVenteiraMM2025#62288-boards-cubes-cubing-clash" target="_blank" class="wca-button" data-en="Visit Competition Page" data-pt="Visitar Página da Competição">
+      Visitar Página da Competição
     </a>
-    <a href="https://example.com/register-qualifier" target="_blank" class="wca-button secondary">
-      Register for a Qualifier
+    <a href="https://example.com/register-qualifier" target="_blank" class="wca-button secondary" data-en="Register for a Qualifier" data-pt="Registar para um Qualificador">
+      Registar para um Qualificador
     </a>
   </div>
 
@@ -255,6 +290,8 @@ input:checked + .toggle-label .ball {
   <script>
     const toggle = document.getElementById('darkSwitch');
     const body = document.body;
+    const langToggleBtn = document.getElementById('langToggle');
+    const elementsToTranslate = document.querySelectorAll('[data-en][data-pt]');
 
     // Load theme preference
     if (localStorage.getItem('dark-mode') === 'enabled') {
@@ -271,6 +308,24 @@ input:checked + .toggle-label .ball {
         localStorage.setItem('dark-mode', 'disabled');
       }
     });
+
+function setLanguage(lang) {
+  elementsToTranslate.forEach(el => {
+    el.textContent = el.getAttribute(`data-${lang}`);
+  });
+  // Update button text to show the opposite language as next option
+  langToggleBtn.textContent = lang === 'en' ? 'PT 🇵🇹' : 'EN 🇬🇧';
+  localStorage.setItem('language', lang);
+}
+
+// On load, apply saved language or default to Portuguese
+const savedLang = localStorage.getItem('language') || 'pt';
+setLanguage(savedLang);
+
+langToggleBtn.addEventListener('click', () => {
+  const currentLang = localStorage.getItem('language') || 'pt';
+  setLanguage(currentLang === 'en' ? 'pt' : 'en');
+});
   </script>
 
 </body>
