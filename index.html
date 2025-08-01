@@ -134,55 +134,65 @@
 
     /* Toggle Switch */
     .theme-toggle {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      z-index: 999;
-    }
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 999;
+}
 
-    .theme-toggle input {
-      display: none;
-    }
+.theme-toggle input {
+  display: none;
+}
 
-    .toggle-label {
-      background: var(--secondary-color);
-      border-radius: 50px;
-      width: 60px;
-      height: 30px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      cursor: pointer;
-      padding: 0 5px;
-      position: relative;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    }
+.toggle-label {
+  background: var(--secondary-color);
+  border-radius: 50px;
+  width: 70px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 0 8px;
+  position: relative;
+  font-size: 18px;
+  color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
 
-    .toggle-label .ball {
-      background: white;
-      height: 24px;
-      width: 24px;
-      border-radius: 50%;
-      position: absolute;
-      left: 3px;
-      top: 3px;
-      transition: transform 0.3s ease;
-    }
+.toggle-label span {
+  z-index: 1;
+}
 
-    input:checked + .toggle-label .ball {
-      transform: translateX(30px);
-    }
+.toggle-label .ball {
+  background: white;
+  height: 26px;
+  width: 26px;
+  border-radius: 50%;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  transition: transform 0.3s ease;
+  z-index: 2;
+}
+
+input:checked + .toggle-label .ball {
+  transform: translateX(36px);
+}
   </style>
 </head>
 <body>
 
   <!-- Light/Dark Toggle -->
   <div class="theme-toggle">
-    <input type="checkbox" id="darkSwitch">
-    <label for="darkSwitch" class="toggle-label">
-      <div class="ball"></div>
-    </label>
-  </div>
+  <input type="checkbox" id="darkSwitch">
+  <label for="darkSwitch" class="toggle-label">
+    <span>🌞</span>
+    <span>🌙</span>
+    <div class="ball"></div>
+  </label>
+</div>
+
 
   <header>
     <img src="Boards&Cubes_1080 x 1080 px Logo 2.png" alt="Title Image">
