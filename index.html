@@ -73,11 +73,19 @@ td:first-child {
   font-weight: bold;
   color: #4a90e2;
 }
-    .wca-button {
+    
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+.wca-button {
   display: inline-block;
-  margin: 2rem auto;
   padding: 0.75rem 1.5rem;
-  background-color: #4a90e2;
+  background-color: #4768ff;
   color: white;
   text-decoration: none;
   border-radius: 8px;
@@ -88,6 +96,15 @@ td:first-child {
 .wca-button:hover {
   background-color: #357ac8;
 }
+
+.wca-button.secondary {
+  background-color: #50c878; /* emerald green */
+}
+
+.wca-button.secondary:hover {
+  background-color: #3fa060;
+}
+
   </style>
 </head>
 <body>
@@ -107,28 +124,49 @@ td:first-child {
     </thead>
     <tbody>
       <tr>
-        <td>Maria Alfacinha da Costa</td>
-        <td>Boards & Cubes Venteira II 2025</td>
+        <td>
+          <a href="https://www.worldcubeassociation.org/persons/2023COST18" target="_blank">
+            Maria Alfacinha da Costa
+          </a>
+        </td>
+        <td>
+          <a href="https://www.worldcubeassociation.org/competitions/BoardsCubesVenteiraII2025" target="_blank">
+            Boards & Cubes Venteira II 2025
+          </a>
+        </td>
       </tr>
       <tr>
-        <td>TBD</td>
-        <td>Boards & Cubes Venteira - Multi Madness 2025</td>
+        <td>
+          <a href="#">TBD</a>
+        </td>
+        <td>
+          <a href="https://www.worldcubeassociation.org/competitions/BoardsCubesVenteiraMM2025" target="_blank">
+            Boards & Cubes Venteira - Multi Madness 2025
+          </a>
+        </td>
       </tr>
       <tr>
-        <td>TBD</td>
-        <td>TBD</td>
+        <td><a href="#">TBD</a></td>
+        <td><a href="#">TBD</a></td>
       </tr>
       <tr>
-        <td>TBD</td>
-        <td>TBD</td>
+        <td><a href="#">TBD</a></td>
+        <td><a href="#">TBD</a></td>
       </tr>
     </tbody>
   </table>
 </section>
 
-<a href="https://www.worldcubeassociation.org/competitions/BoardsCubesVenteiraMM2025#62288-boards-cubes-cubing-clash" target="_blank" class="wca-button">
-  Visit Competition Page
-</a>
+
+<div class="button-group">
+  <a href="https://www.worldcubeassociation.org/competitions/BoardsCubesVenteiraMM2025#62288-boards-cubes-cubing-clash" target="_blank" class="wca-button">
+    Visit Competition Page
+  </a>
+  <a href="https://example.com/register-qualifier" target="_blank" class="wca-button secondary">
+    Register for a Qualifier
+  </a>
+</div>
+
 
 
 </body>
