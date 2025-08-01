@@ -153,39 +153,23 @@
   border-radius: 50px;
   width: 70px;
   height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   cursor: pointer;
+  padding: 0 8px;
   position: relative;
+  font-size: 18px;
+  color: white;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.4s ease;
+}
+
+.toggle-label span {
+  z-index: 1;
   user-select: none;
 }
 
-/* Position icons absolutely inside the toggle */
-.toggle-label span {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 26px;
-  height: 26px;
-  line-height: 26px;
-  font-size: 20px;
-  text-align: center;
-  pointer-events: none; /* so clicks pass through */
-  color: white;
-  transition: color 0.3s ease;
-  z-index: 1;
-}
-
-/* Moon icon on left */
-.toggle-label span:first-child {
-  left: 8px;
-}
-
-/* Sun icon on right */
-.toggle-label span:last-child {
-  right: 8px;
-}
-
-/* The toggle ball */
 .toggle-label .ball {
   background: white;
   height: 26px;
@@ -195,16 +179,17 @@
   top: 4px;
   left: 4px;
   transition: transform 0.3s ease;
+  z-index: 2;
   box-shadow: 0 0 8px rgba(0,0,0,0.15);
-  z-index: 2; /* on top of icons */
 }
 
-/* Move ball right on checked */
+input:checked + .toggle-label {
+  background: var(--accent-color);
+}
+
 input:checked + .toggle-label .ball {
   transform: translateX(36px);
 }
-
-
     .language-toggle {
   position: fixed;
   top: 1rem;
@@ -237,8 +222,6 @@ input:checked + .toggle-label .ball {
   <div class="theme-toggle">
   <input type="checkbox" id="darkSwitch">
   <label for="darkSwitch" class="toggle-label">
-    <span>🌙</span>
-    <span>🌞</span>
     <div class="ball"></div>
   </label>
 </div>
