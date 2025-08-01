@@ -51,22 +51,85 @@
       margin-right: 1rem;
       color: #4a90e2;
     }
+
+    table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th, td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+
+thead {
+  background-color: #4a90e2;
+  color: white;
+}
+
+td:first-child {
+  font-weight: bold;
+  color: #4a90e2;
+}
+    .wca-button {
+  display: inline-block;
+  margin: 2rem auto;
+  padding: 0.75rem 1.5rem;
+  background-color: #4a90e2;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.wca-button:hover {
+  background-color: #357ac8;
+}
   </style>
 </head>
 <body>
 
   <header>
     <img src="Boards&Cubes_1080 x 1080 px Logo 2.png" alt="Title Image">
-    <h1>Top Ranked Names</h1>
+    <h1>Competidores Qualificados | Qualified Competitors</h1>
   </header>
 
   <section class="ranking">
-    <div class="rank-item"><span class="rank-number">1.</span> Alice</div>
-    <div class="rank-item"><span class="rank-number">2.</span> Bob</div>
-    <div class="rank-item"><span class="rank-number">3.</span> Charlie</div>
-    <div class="rank-item"><span class="rank-number">4.</span> Diana</div>
-    <div class="rank-item"><span class="rank-number">5.</span> Eve</div>
-  </section>
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Competição</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Maria Alfacinha da Costa</td>
+        <td>Boards & Cubes Venteira II 2025</td>
+      </tr>
+      <tr>
+        <td>TBD</td>
+        <td>Boards & Cubes Venteira - Multi Madness 2025</td>
+      </tr>
+      <tr>
+        <td>TBD</td>
+        <td>TBD</td>
+      </tr>
+      <tr>
+        <td>TBD</td>
+        <td>TBD</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<a href="https://www.worldcubeassociation.org/competitions/BoardsCubesVenteiraMM2025#62288-boards-cubes-cubing-clash" target="_blank" class="wca-button">
+  Visit Competition Page
+</a>
+
 
 </body>
 </html>
