@@ -5,24 +5,50 @@
   <title>Boards & Cubes Cubing Clash 2025</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    :root {
+      --bg-color: #FAFFFD;
+      --text-color: #222;
+      --primary-color: #3E8989;
+      --secondary-color: #4768ff;
+      --accent-color: #50c878;
+      --table-header-bg: #4768ff;
+      --link-hover: #4768ff;
+      --card-bg: #ffffff;
+    }
+
+    body.dark-mode {
+      --bg-color: #1e1e1e;
+      --text-color: #f0f0f0;
+      --primary-color: #3E8989;
+      --secondary-color: #6a8dff;
+      --accent-color: #5ed4a0;
+      --table-header-bg: #2e2e4e;
+      --link-hover: #90c2ff;
+      --card-bg: #2a2a2a;
+    }
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
-      background: #FAFFFD;
+      background: var(--bg-color);
+      color: var(--text-color);
       text-align: center;
+      transition: background 0.3s ease, color 0.3s ease;
     }
 
     header {
-      background-color: #3E8989;
-      padding: 1rem;
+      background-color: var(--primary-color);
+      padding: 2rem 1rem;
       color: white;
     }
 
     header img {
-      max-width: 200px;
+      max-width: 220px;
       height: auto;
       margin-bottom: 10px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
 
     h1 {
@@ -30,84 +56,133 @@
     }
 
     .ranking {
-      max-width: 500px;
+      max-width: 600px;
       margin: 2rem auto;
       text-align: left;
-      background: white;
-      padding: 1rem 2rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .rank-item {
-      font-size: 1.2rem;
-      margin: 0.5rem 0;
-      display: flex;
-      align-items: center;
-    }
-
-    .rank-number {
-      font-weight: bold;
-      margin-right: 1rem;
-      color: #4a90e2;
+      background: var(--card-bg);
+      padding: 1.5rem 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s ease;
     }
 
     table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 1rem;
-}
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
 
-th, td {
-  padding: 0.75rem;
-  text-align: left;
-  border-bottom: 1px solid #ccc;
-}
+    th, td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid #e0e0e0;
+    }
 
-thead {
-  background-color: #4768ff;
-  color: white;
-}
+    thead {
+      background-color: var(--table-header-bg);
+      color: white;
+    }
 
-td:first-child {
-  font-weight: bold;
-  color: #4a90e2;
-}
-    
-.button-group {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin: 2rem 0;
-  flex-wrap: wrap;
-}
+    td:first-child {
+      font-weight: bold;
+      color: var(--primary-color);
+    }
 
-.wca-button {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  background-color: #4768ff;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
-}
+    td a {
+      text-decoration: none;
+      color: var(--text-color);
+      transition: color 0.3s ease;
+    }
 
-.wca-button:hover {
-  background-color: #357ac8;
-}
+    td a:hover {
+      color: var(--link-hover);
+    }
 
-.wca-button.secondary {
-  background-color: #50c878; /* emerald green */
-}
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 3rem 0;
+      flex-wrap: wrap;
+    }
 
-.wca-button.secondary:hover {
-  background-color: #3fa060;
-}
+    .wca-button {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      background: linear-gradient(to right, var(--secondary-color), #4ed0fb);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
 
+    .wca-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(71, 104, 255, 0.3);
+    }
+
+    .wca-button.secondary {
+      background: linear-gradient(to right, var(--accent-color), #76e2b3);
+    }
+
+    .wca-button.secondary:hover {
+      box-shadow: 0 6px 20px rgba(80, 200, 120, 0.3);
+    }
+
+    /* Toggle Switch */
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 999;
+    }
+
+    .theme-toggle input {
+      display: none;
+    }
+
+    .toggle-label {
+      background: var(--secondary-color);
+      border-radius: 50px;
+      width: 60px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      padding: 0 5px;
+      position: relative;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .toggle-label .ball {
+      background: white;
+      height: 24px;
+      width: 24px;
+      border-radius: 50%;
+      position: absolute;
+      left: 3px;
+      top: 3px;
+      transition: transform 0.3s ease;
+    }
+
+    input:checked + .toggle-label .ball {
+      transform: translateX(30px);
+    }
   </style>
 </head>
 <body>
+
+  <!-- Light/Dark Toggle -->
+  <div class="theme-toggle">
+    <input type="checkbox" id="darkSwitch">
+    <label for="darkSwitch" class="toggle-label">
+      <div class="ball"></div>
+    </label>
+  </div>
 
   <header>
     <img src="Boards&Cubes_1080 x 1080 px Logo 2.png" alt="Title Image">
@@ -115,59 +190,78 @@ td:first-child {
   </header>
 
   <section class="ranking">
-  <table>
-    <thead>
-      <tr>
-        <th>Nome</th>
-        <th>Competição</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>
-          <a href="https://www.worldcubeassociation.org/persons/2023COST18" target="_blank">
-            Maria Alfacinha da Costa
-          </a>
-        </td>
-        <td>
-          <a href="https://www.worldcubeassociation.org/competitions/BoardsCubesVenteiraII2025" target="_blank">
-            Boards & Cubes Venteira II 2025
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <a href="#">TBD</a>
-        </td>
-        <td>
-          <a href="https://www.worldcubeassociation.org/competitions/BoardsCubesVenteiraMM2025" target="_blank">
-            Boards & Cubes Venteira - Multi Madness 2025
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td><a href="#">TBD</a></td>
-        <td><a href="#">TBD</a></td>
-      </tr>
-      <tr>
-        <td><a href="#">TBD</a></td>
-        <td><a href="#">TBD</a></td>
-      </tr>
-    </tbody>
-  </table>
-</section>
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Competição</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <a href="https://www.worldcubeassociation.org/persons/2023COST18" target="_blank">
+              Maria Alfacinha da Costa
+            </a>
+          </td>
+          <td>
+            <a href="https://www.worldcubeassociation.org/competitions/BoardsCubesVenteiraII2025" target="_blank">
+              Boards & Cubes Venteira II 2025
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <a href="#">TBD</a>
+          </td>
+          <td>
+            <a href="https://www.worldcubeassociation.org/competitions/BoardsCubesVenteiraMM2025" target="_blank">
+              Boards & Cubes Venteira - Multi Madness 2025
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td><a href="#">TBD</a></td>
+          <td><a href="#">TBD</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">TBD</a></td>
+          <td><a href="#">TBD</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
 
+  <div class="button-group">
+    <a href="https://www.worldcubeassociation.org/competitions/BoardsCubesVenteiraMM2025#62288-boards-cubes-cubing-clash" target="_blank" class="wca-button">
+      Visit Competition Page
+    </a>
+    <a href="https://example.com/register-qualifier" target="_blank" class="wca-button secondary">
+      Register for a Qualifier
+    </a>
+  </div>
 
-<div class="button-group">
-  <a href="https://www.worldcubeassociation.org/competitions/BoardsCubesVenteiraMM2025#62288-boards-cubes-cubing-clash" target="_blank" class="wca-button">
-    Visit Competition Page
-  </a>
-  <a href="https://example.com/register-qualifier" target="_blank" class="wca-button secondary">
-    Register for a Qualifier
-  </a>
-</div>
+  <!-- Dark Mode Script -->
+  <script>
+    const toggle = document.getElementById('darkSwitch');
+    const body = document.body;
 
+    // Load theme preference
+    if (localStorage.getItem('dark-mode') === 'enabled') {
+      body.classList.add('dark-mode');
+      toggle.checked = true;
+    }
 
+    toggle.addEventListener('change', () => {
+      if (toggle.checked) {
+        body.classList.add('dark-mode');
+        localStorage.setItem('dark-mode', 'enabled');
+      } else {
+        body.classList.remove('dark-mode');
+        localStorage.setItem('dark-mode', 'disabled');
+      }
+    });
+  </script>
 
 </body>
 </html>
