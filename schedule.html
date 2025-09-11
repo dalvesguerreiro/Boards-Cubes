@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Boards & Cubes Cubing Clash 2025</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg-color: #FAFFFD;
+      --text-color: #222;
+      --primary-color: #3E8989;
+      --secondary-color: #4768ff;
+      --accent-color: #50c878;
+      --table-header-bg: #4768ff;
+      --link-hover: #4768ff;
+      --card-bg: #ffffff;
+    }
+
+    body.dark-mode {
+      --bg-color: #1e1e1e;
+      --text-color: #f0f0f0;
+      --primary-color: #265454;
+      --secondary-color: #6a8dff;
+      --accent-color: #5ed4a0;
+      --table-header-bg: #000b3d;
+      --link-hover: #90c2ff;
+      --card-bg: #3d3d3d;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--bg-color);
+      color: var(--text-color);
+      text-align: center;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    header {
+      background-color: var(--primary-color);
+      padding: 2rem 1rem;
+      color: white;
+    }
+
+    header img {
+      max-width: 220px;
+      height: auto;
+      margin-bottom: 10px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      margin-top: 0.5rem;
+    }
+
+    .ranking {
+      max-width: 600px;
+      margin: 2rem auto;
+      text-align: left;
+      background: var(--card-bg);
+      padding: 1.5rem 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s ease;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    th, td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    thead {
+      background-color: var(--table-header-bg);
+      color: white;
+    }
+
+    td:first-child {
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+
+    td a {
+      text-decoration: none;
+      color: var(--text-color);
+      transition: color 0.3s ease;
+    }
+
+    td a:hover {
+      color: var(--link-hover);
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 3rem 0;
+      flex-wrap: wrap;
+    }
+
+    .wca-button {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      background: linear-gradient(to right, var(--secondary-color), #4ed0fb);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    .wca-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(71, 104, 255, 0.3);
+    }
+
+    .wca-button.secondary {
+      background: linear-gradient(to right, var(--accent-color), #76e2b3);
+    }
+
+    .wca-button.secondary:hover {
+      box-shadow: 0 6px 20px rgba(80, 200, 120, 0.3);
+    }
+
+    /* Toggle Switch */
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 999;
+}
+
+.theme-toggle input {
+  display: none;
+}
+
+.toggle-label {
+  background: var(--secondary-color);
+  border-radius: 50px;
+  width: 70px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 0 8px;
+  position: relative;
+  font-size: 18px;
+  color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.4s ease;
+}
+
+.toggle-label span {
+  z-index: 1;
+  user-select: none;
+}
+
+.toggle-label .ball {
+  background: white;
+  height: 26px;
+  width: 26px;
+  border-radius: 50%;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  transition: transform 0.3s ease;
+  z-index: 2;
+  box-shadow: 0 0 8px rgba(0,0,0,0.15);
+}
+
+input:checked + .toggle-label {
+  background: var(--accent-color);
+}
+
+input:checked + .toggle-label .ball {
+  transform: translateX(36px);
+}
+    .language-toggle {
+  position: fixed;
+  top: 1rem;
+  left: 1rem; /* adjust to leave space for dark mode toggle */
+  z-index: 999;
+}
+
+#langToggle {
+  background: var(--secondary-color);
+  border: none;
+  border-radius: 50px;
+  padding: 0.4rem 1rem;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+}
+
+#langToggle:hover {
+  background: var(--accent-color);
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Light/Dark Toggle -->
+  <div class="theme-toggle">
+  <input type="checkbox" id="darkSwitch">
+  <label for="darkSwitch" class="toggle-label">
+    <div class="ball"></div>
+  </label>
+</div>
+  
+<div class="language-toggle">
+  <button id="langToggle">PT 🇵🇹</button>
+</div>
+
+  <header>
+    <img src="Boards&Cubes_1080 x 1080 px Logo 2.png" alt="Title Image">
+    <h1 data-en="Schedule" data-pt="Horário">Horário | Schedule</h1>
+    <nav>
+      <a href="index.html">Home</a> |
+      <a href="schedule.html">Schedule</a>
+    </nav>
+  </header>
+
+  <section class="schedule">
+   
+  </section>
+
+  <div class="button-group">
+    <a href="https://www.worldcubeassociation.org/competitions/BoardsCubesVenteiraPM2025#63102-boards-cubes-cubing-clash target="_blank" class="wca-button" data-en="Visit Competition Page" data-pt="Visitar Página da Competição">
+      Visitar Página da Competição
+    </a>
+    <a href="https://www.worldcubeassociation.org/competitions?region=PT&search=Boards+%26+Cubes" target="_blank" class="wca-button secondary" data-en="Register for a Qualifier" data-pt="Registar para um Qualificador">
+      Registar para um Qualificador
+    </a>
+  </div>
+
+  <!-- Dark Mode Script -->
+  <script>
+    const toggle = document.getElementById('darkSwitch');
+    const body = document.body;
+    const langToggleBtn = document.getElementById('langToggle');
+    const elementsToTranslate = document.querySelectorAll('[data-en][data-pt]');
+
+    // Load theme preference
+    if (localStorage.getItem('dark-mode') === 'enabled') {
+      body.classList.add('dark-mode');
+      toggle.checked = true;
+    }
+
+    toggle.addEventListener('change', () => {
+      if (toggle.checked) {
+        body.classList.add('dark-mode');
+        localStorage.setItem('dark-mode', 'enabled');
+      } else {
+        body.classList.remove('dark-mode');
+        localStorage.setItem('dark-mode', 'disabled');
+      }
+    });
+
+function setLanguage(lang) {
+  elementsToTranslate.forEach(el => {
+    el.textContent = el.getAttribute(`data-${lang}`);
+  });
+  // Update button text to show the opposite language as next option
+  langToggleBtn.textContent = lang === 'en' ? 'PT 🇵🇹' : 'EN 🇬🇧';
+  localStorage.setItem('language', lang);
+}
+
+// On load, apply saved language or default to Portuguese
+const savedLang = localStorage.getItem('language') || 'pt';
+setLanguage(savedLang);
+
+langToggleBtn.addEventListener('click', () => {
+  const currentLang = localStorage.getItem('language') || 'pt';
+  setLanguage(currentLang === 'en' ? 'pt' : 'en');
+});
+  </script>
+
+</body>
+</html>
