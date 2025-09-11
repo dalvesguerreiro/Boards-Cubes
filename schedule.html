@@ -214,6 +214,53 @@ input:checked + .toggle-label .ball {
   background: var(--accent-color);
 }
 
+    /* Navbar */
+.navbar {
+  background: var(--primary-color);
+  padding: 0.75rem 2rem;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  position: relative;
+  padding: 0.25rem 0;
+  transition: color 0.3s ease;
+}
+
+.navbar a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-color);
+  transition: width 0.3s ease;
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+.navbar a:hover {
+  color: var(--accent-color);
+}
+
+
   </style>
 </head>
 <body>
@@ -233,10 +280,13 @@ input:checked + .toggle-label .ball {
   <header>
     <img src="Boards&Cubes_1080 x 1080 px Logo 2.png" alt="Title Image">
     <h1 data-en="Schedule" data-pt="Horário">Horário | Schedule</h1>
-    <nav>
-      <a href="index.html">Home</a> |
-      <a href="schedule.html">Schedule</a>
-    </nav>
+    <nav class="navbar">
+  <ul>
+    <li><a href="index.html" data-en="Home" data-pt="Início">Início</a></li>
+    <li><a href="schedule.html" data-en="Schedule" data-pt="Horário">Horário</a></li>
+    <li><a href="about.html" data-en="About" data-pt="Sobre">Sobre</a></li>
+  </ul>
+  </nav>
   </header>
 
   <section class="schedule">
