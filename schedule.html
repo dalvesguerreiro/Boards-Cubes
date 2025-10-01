@@ -260,6 +260,25 @@ input:checked + .toggle-label .ball {
   color: var(--accent-color);
 }
 
+    .soon h1 {
+  font-size: 6rem;
+  font-weight: 800;
+  color: var(--secondary-color);
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+  animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.7;
+  }
+
 
   </style>
 </head>
@@ -289,7 +308,9 @@ input:checked + .toggle-label .ball {
   </header>
 
   <section class="schedule">
-   
+    <div class="soon">
+      <h1>SOON</h1>
+    </div>
   </section>
 
   <div class="button-group">
